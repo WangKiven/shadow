@@ -29,6 +29,7 @@ dependencies {
     implementation libs.flexbox
 //    implementation 'com.loopeer.lib:shadow:0.0.2'
     implementation project(':shadow')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation libs.constraintLayout
 }

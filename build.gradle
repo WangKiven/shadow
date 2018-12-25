@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.10'
+    ext.kotlin_version = '1.3.10'
     repositories {
         google()
         jcenter()
@@ -10,20 +10,32 @@ buildscript {
         maven { url "https://jitpack.io" }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+
+    project.ext {
+
+        compileSdkVersion = 28
+        buildToolsVersion = "28.0.3"
+        minSdkVersion = 17
+        targetSdkVersion = 27
+        libraryVersion = "28.0.0"
     }
 }
 
-plugins {
-    id "com.jfrog.bintray" version "1.7.3"
-}
+/*plugins {
+    id "com.jfrog.bintray" version "1.8.0"
+}*/
 
 allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://raw.githubusercontent.com/Pgyer/mvn_repo_pgyer/master" }
+        maven { url 'https://jitpack.io' }
     }
 }
 
@@ -33,17 +45,18 @@ task clean(type: Delete) {
 
 ext {
     configs = [
-            compileSdkVersion: 27,
-            buildToolsVersion: '27.0.2',
+            compileSdkVersion: 28,
+            buildToolsVersion: '28.0.3',
             minSdkVersion    : 17,
             targetSdkVersion : 27,
             versionCode      : 1,
             versionName      : '1.0.0',
     ]
 
-    supportLibraryVersion = '27.0.2'
-    constraintVersion = '1.1.0-beta4'
-    flexboxVersion = '0.3.0'
+    supportLibraryVersion = '28.0.0'
+
+    constraintVersion = '1.1.3'
+    flexboxVersion = '1.0.0'
 
     libs = [appcompatV7     : "com.android.support:appcompat-v7:$supportLibraryVersion",
             supportV4       : "com.android.support:support-v4:$supportLibraryVersion",

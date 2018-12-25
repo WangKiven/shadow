@@ -3,15 +3,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion configs.compileSdkVersion
-    buildToolsVersion configs.buildToolsVersion
+    compileSdkVersion parent.ext.compileSdkVersion
+    buildToolsVersion parent.ext.buildToolsVersion
 
 
     defaultConfig {
-        minSdkVersion configs.minSdkVersion
-        targetSdkVersion configs.targetSdkVersion
-        versionCode configs.versionCode
-        versionName configs.versionName
+        minSdkVersion parent.ext.minSdkVersion
+        targetSdkVersion parent.ext.targetSdkVersion
+        versionCode 1
+        versionName '1.0.0'
     }
 
     buildTypes {
@@ -25,11 +25,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation libs.appcompatV7
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+//    implementation libs.appcompatV7
+    implementation "com.android.support:appcompat-v7:${parent.ext.libraryVersion}"
+//    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
-repositories {
+/*repositories {
     mavenCentral()
-}
+}*/
 
-apply from: 'bintray.gradle'
+// apply from: 'bintray.gradle'

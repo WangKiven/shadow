@@ -31,7 +31,7 @@ class ShadowViewActivity : AppCompatActivity() {
 
     class ShadowViewRecyclerAdapter(val shadowView: ShadowView) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-        override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             val inflater = LayoutInflater.from(parent?.context)
             return when (viewType) {
                 R.layout.list_item_color_select -> {
@@ -43,7 +43,7 @@ class ShadowViewActivity : AppCompatActivity() {
             }
         }
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             if (holder is ShadowViewSeekItemHolder) {
                 holder.bind(SeekItem.values()[position], shadowView)
             } else if (holder is ShadowViewColorItemHolder) {
