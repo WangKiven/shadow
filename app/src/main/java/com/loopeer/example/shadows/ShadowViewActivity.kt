@@ -3,9 +3,9 @@ package com.loopeer.example.shadows
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,12 +26,12 @@ class ShadowViewActivity : AppCompatActivity() {
 
         adapter = ShadowViewRecyclerAdapter(shadow_view)
         view_recycler.adapter = adapter
-        view_recycler.layoutManager = LinearLayoutManager(this)
+        view_recycler.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
     }
 
-    class ShadowViewRecyclerAdapter(val shadowView: ShadowView) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    class ShadowViewRecyclerAdapter(val shadowView: ShadowView) : androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
             val inflater = LayoutInflater.from(parent?.context)
             return when (viewType) {
                 R.layout.list_item_color_select -> {
@@ -43,7 +43,7 @@ class ShadowViewActivity : AppCompatActivity() {
             }
         }
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
             if (holder is ShadowViewSeekItemHolder) {
                 holder.bind(SeekItem.values()[position], shadowView)
             } else if (holder is ShadowViewColorItemHolder) {
@@ -69,7 +69,7 @@ class ShadowViewActivity : AppCompatActivity() {
 
     }
 
-    class ShadowViewSeekItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ShadowViewSeekItemHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
         fun bind(seekItem: SeekItem, shadowView: ShadowView) {
             itemView.text_title.text = seekItem.title
@@ -185,7 +185,7 @@ class ShadowViewActivity : AppCompatActivity() {
         }
     }
 
-    class ShadowViewColorItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ShadowViewColorItemHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         var onClickColor: (() -> Unit)? = null
 
         fun bind(seekItem: SeekItem, shadowView: ShadowView) {

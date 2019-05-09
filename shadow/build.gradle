@@ -24,9 +24,9 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
 //    implementation libs.appcompatV7
-    implementation "com.android.support:appcompat-v7:${parent.ext.libraryVersion}"
+    implementation "androidx.appcompat:appcompat:1.0.2"
 //    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
